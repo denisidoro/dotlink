@@ -23,7 +23,7 @@ dotlink - Simplest dotfiles manager
 
 Usage: dotlink [options] <commands> [<args>]
   dotlink pull [--self]
-  dotlink (set | update) [-i | --ignore] [-f | --force] [-b | --backup] [-v | --verbose]
+  dotlink (set | update) [-i | --ignore] [-f | --force] [-b | --backup] [-v | --verbose] [-p | --create-dirs]
   dotlink add (<file> [$DOT_DIR/path/to/the/file]) | <symboliclinks>...
   dotlink unlink <symboliclinks>...
   dotlink clear

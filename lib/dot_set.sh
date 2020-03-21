@@ -4,6 +4,7 @@ dot_set() {
   local arg
   local dotset_ignore=false
   local dotset_force=false
+  local dotset_create_dirs=false
   local dotset_backup=false
   local dotset_verbose=false
 
@@ -12,6 +13,7 @@ dot_set() {
     case "$arg" in
       "--ignore" ) set -- "$@" "-i" ;;
       "--force"  ) set -- "$@" "-f" ;;
+      "--create-dirs"|"p" ) dotset_create_dirs=true ;;
       "--backup" ) set -- "$@" "-b" ;;
       "--verbose") set -- "$@" "-v" ;;
                 *) set -- "$@" "$arg" ;;
@@ -21,6 +23,7 @@ dot_set() {
   OPTIND=1
 
   while getopts ifbv OPT; do
+  echo "opt: $OPT"
     case $OPT in
       "i" ) dotset_ignore=true ;;
       "f" ) dotset_force=true ;;
@@ -40,7 +43,7 @@ dot_set() {
 
     ${dotset_ignore} && return 1
 
-    if ! ${dotset_force}; then
+    if ! ${dotset_force} && ! ${dotset_create_dirs}; then
       __confirm y "make directory $(bd_ ${origdir}) ? " || return 1
     fi
     mkdir -p "${origdir}" && return 0
