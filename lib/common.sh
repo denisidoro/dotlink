@@ -11,9 +11,9 @@ local dotpull_update_submodule
 # Default settings                                                          {{{
 # -----------------------------------------------------------------------------
 
-clone_repository="${DOT_REPO:-"https://github.com/ssh0/dotfiles.git"}"
+clone_repository="${DOT_REPO:-"https://github.com/denisidoro/dotfiles.git"}"
 
-dotdir="${DOT_DIR:-"$HOME/.dotfiles"}"
+dotdir="${DOT_DIR:-"$HOME/dotfiles"}"
 dotlink="${DOT_LINK:-"$dotdir/dotlink"}"
 linkfiles=("${dotlink}")
 
