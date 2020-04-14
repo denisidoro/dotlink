@@ -9,7 +9,7 @@
 # Author:              denisidoro (Denis Isidoro)
 # License:             MIT
 
-if [[ ! -v DOT_SCRIPT_ROOTDIR ]]; then
+if [[ -z "${DOT_SCRIPT_ROOTDIR:-}" ]]; then
 	DOT_SCRIPT_ROOTDIR="$(builtin cd "$(dirname "${BASH_SOURCE:-${(%):-%N}}")" && builtin pwd)"
 	readonly DOT_SCRIPT_ROOTDIR
 	export DOT_SCRIPT_ROOTDIR
